@@ -11,3 +11,4 @@ yarn.lock
 .awcache
 public
 .env
+.vscode
