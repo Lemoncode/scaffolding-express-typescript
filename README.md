@@ -28,7 +28,7 @@ npm run start:debug
 
 Since VSCode v1.47, a new [New JavaScript Debugger](https://code.visualstudio.com/updates/v1_47#_debugging) feature has been enabled.
 
-This new debugger works with no configuration on this way:
+This new debugger works with zero config:
 
 ![create-js-debug-terminal](./readme-resources/00-create-js-debug-terminal.png)
 
