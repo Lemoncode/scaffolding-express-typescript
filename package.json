@@ -10,6 +10,7 @@
     "start:prod": "node ./dist/index.js",
     "build": "run-p -l type-check build:prod",
     "build:prod": "npm run clean && babel src -d dist --ignore=\"./src/test-runners\" --extensions \".ts\"",
+    "build:dev": "npm run clean && babel src -d dist --ignore=\"./src/test-runners\" --extensions \".ts\" --source-maps",
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
     "clean": "rimraf dist"
