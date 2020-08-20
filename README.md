@@ -26,13 +26,13 @@ npm run start:debug
 
 # Debugging state
 
-Since VS Code v1.47, it enables a new debugging feature, [New JavaScript Debugger](https://code.visualstudio.com/updates/v1_47#_debugging) as default.
+Since VSCode v1.47, a new [New JavaScript Debugger](https://code.visualstudio.com/updates/v1_47#_debugging) feature has been enabled.
 
 This new debugger works with no configuration on this way:
 
 ![create-js-debug-terminal](./readme-resources/00-create-js-debug-terminal.png)
 
-And run command:
+And just running the command `npm start` it will let us attach to the process and debug:
 
 ```bash
 npm start
@@ -42,7 +42,7 @@ npm start
 
 ![running-debugger](./readme-resources/01-running-debugger.png)
 
-- But it stops on transpiled code break points when we are debugging:
+- But it doesn't behave well on TypeScript projects yet. It will stop on transpiled code instead of original TS files:
 
 ![stop-on-transpiled-code](./readme-resources/02-stop-on-transpiled-code.png)
 
