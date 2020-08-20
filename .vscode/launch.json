@@ -4,7 +4,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "Debug Launch",
       "program": "${workspaceFolder}/dist/index.js",
       "preLaunchTask": "build",
       "runtimeExecutable": null,
@@ -15,6 +15,19 @@
       "console": "internalConsole",
       "sourceMaps": true,
       "outFiles": ["${workspaceRoot}/**/*.js"]
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Debug Attach",
+      "port": 9229,
+      "address": "localhost",
+      "restart": true,
+      "sourceMaps": true,
+      "stopOnEntry": false,
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "${workspaceFolder}",
+      "skipFiles": ["node_modules/**", "<node_internals>/**"]
     }
   ]
 }
