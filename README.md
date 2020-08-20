@@ -24,7 +24,7 @@ npm run start:debug
 
 - And run .vscode/launch.json (Debug Attach)
 
-# Debugging state
+# Debugging on VS Code
 
 Since VSCode v1.47, a new [New JavaScript Debugger](https://code.visualstudio.com/updates/v1_47#_debugging) feature has been enabled.
 
