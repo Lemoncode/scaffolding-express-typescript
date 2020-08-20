@@ -53,3 +53,5 @@ npm start
 - And now, we can run `npm run start:debug` and `Debug Attach` command defined in .vscode/launch.json:
 
 ![stop-on-original-code](./readme-resources/04-stop-on-original-code.png)
+
+This is something that has been fixed in a nightly build and likely to be released in the near future, [more information](https://github.com/microsoft/vscode/issues/103048)
