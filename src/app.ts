@@ -10,7 +10,7 @@ app.use('/api', api);
 app.listen(envConstants.PORT, () => {
   console.log(
     `${colors.yellow('Server running in:')}
-    url : http://localhost:${colors.green(envConstants.PORT)}/api
-    mode: ${colors.green(envConstants.NODE_ENV)}`
+    url : http://localhost:${colors.green.italic(envConstants.PORT)}/api
+    mode: ${colors.green.italic(envConstants.NODE_ENV)}`
   );
 });
