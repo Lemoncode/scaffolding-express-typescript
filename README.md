@@ -1,5 +1,7 @@
 # Scaffolding Express Typescript
 
+[🇪🇸 Versión Español](./README_es.md)
+
 ## Steps
 
 - Run install
