@@ -43,7 +43,7 @@ First install the following package:
 npm install cors -P
 ```
 
-Thenn install the typings for this package:
+Then install the typings for this package:
 
 ```bash
 npm install @types/cors -D
