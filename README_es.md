@@ -86,7 +86,6 @@ app.listen(envConstants.PORT, () => {
 });
 ```
 
-
 # Debugging en VS Code
 
 Desde la versión 1.47 de VSCode [JavaScript Debugger](https://code.visualstudio.com/updates/v1_47#_debugging) fue activada una nueva mejora.
@@ -118,3 +117,74 @@ npm start
 ![stop-on-original-code](./readme-resources/04-stop-on-original-code.png)
 
 Esto es algo que ha sido arreglado en una "nightly build" y es posible que se libere en un futuro próximo, [más información](https://github.com/microsoft/vscode/issues/103048)
+
+# Añadir configuración para testing con Jest
+
+En primer lugar, debemos instalar los siguientes paquetes como devDependencies.
+
+```bash
+npm install jest ts-jest @types/jest -D
+```
+
+Posteriormente, agregaremos los scripts en el package.json para ejecutar los tests:
+
+package.json
+
+```js
+"test": "cross-env NODE_ENV=test jest -c ./config/test/jest.js --verbose",
+"test:watch": "npm run test -- --watchAll -i --no-cache",
+```
+
+A continuación, agregaremos una carpeta 'config' en el root del proyecto (atentos a no colocarla dentro de src). Dentro de la carpeta 'config' añadimos una subcarpeta títulada 'test' y dentro de esta última los archivos 'jest.js' y 'setup.js', de forma que ambos archivos se encontrarán en la siguiente ruta:
+config/test
+
+Ahora abrimos el archivo 'jest.js' que acabamos de crear y ponemos el siguiente código dentro del mismo para configurar Jest:
+
+config/test/jest.js
+
+```js
+module.exports = {
+  rootDir: '../../',
+  preset: 'ts-jest',
+  restoreMocks: true,
+  setupFiles: ['<rootDir>/config/test/setup.js'],
+  modulePathIgnorePatterns: ['node_modules', '<rootDir>/dist/'],
+  testEnvironment: 'node',
+  moduleDirectories: ['<rootDir>/src', 'node_modules'],
+};
+```
+
+El archivo 'setup.js' podemos dejarlo vacío por el momento. Su utilización vendrá determinada en algunas ocasiones según la configuración de nuestro proyecto.
+
+Para comprobar que todo está bien, podemos crear un archivo spec en la siguiente ruta y poner dentro del mismo un test de prueba:
+
+src/example.test.spec.ts
+
+```js
+describe('example test spec', () => {
+  it('should pass dummy condition', () => {
+    const dummy = true;
+    expect(dummy).toEqual(true);
+  });
+});
+```
+
+Por último, podemos ejecutar los dos scripts que hemos incorporado al archivo 'package.json' para ver que todo funciona correctamente. Con el mismo objetivo, podemos cambiar el valor de la variable 'dummy' de nuestro archivo spec de ejemplo utilizando valores true o false para asegurarnos de que el resultado de los tests cambia según el valor que usemos.
+
+El siguiente script ejecutará los tests de forma global una vez:
+
+```bash
+npm run test
+```
+
+Este otro se quedará vigilando cambios y ejecutará los tests de forma global cada vez que guardemos:
+
+```bash
+npm run test:watch
+```
+
+También podemos ejecutar los test de un solo archivo utilizando cualquiera de los dos scripts y el nombre de dicho archivo:
+
+```bash
+npm run test:watch example-test.spec
+```
