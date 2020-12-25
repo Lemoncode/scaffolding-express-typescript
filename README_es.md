@@ -188,3 +188,7 @@ También podemos ejecutar los test de un solo archivo utilizando cualquiera de l
 ```bash
 npm run test:watch example-test.spec
 ```
+
+# ¿Con ganas de ponerte al día con Backend?
+
+Apuntate a nuestro [Bootcamp Backend](https://lemoncode.net/bootcamp-backend#bootcamp-backend/banner)
