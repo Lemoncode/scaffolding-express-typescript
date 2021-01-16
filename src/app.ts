@@ -6,7 +6,7 @@ import path from 'path';
 
 const app = createApp();
 
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'static')));
 
 app.use('/api', api);
 
